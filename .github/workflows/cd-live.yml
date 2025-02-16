@@ -1,12 +1,7 @@
-name: Continuous Integration Workflow
+name: Manual Deployment Workflow for live
 
 on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   test:
@@ -42,12 +37,12 @@ jobs:
       - name: "Run linter"
         run: npx standard -v
 
-  deploy-preview:
-    name: "Deploy PR Preview to Render"
+  deploy-prod:
+    name: "Deploy PR for LIVE ENV"
     needs: [test, linter]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
-      - name: "Trigger Deploy Hook for PR Preview"
+      - name: "Trigger Deploy Hook for LIVE ENV"
         run: |
-          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_STAGING }}"
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"

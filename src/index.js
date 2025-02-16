@@ -8,6 +8,10 @@ const quotes = [
   {
     id: 4,
     text: "Nothing is impossible. The word itself says 'I'm possible'!"
+  },
+  {
+    id: 5,
+    text: 'The most certain way to succeed is always to try just one more time'
   }
 ]
 
