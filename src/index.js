@@ -12,7 +12,9 @@ const quotes = [
   {
     id: 5,
     text: 'The most certain way to succeed is always to try just one more time'
-  }
+  },
+  { id: 6, text: 'Learn from yesterday, live for today, hope for tomorrow' },
+  { id: 7, text: 'If you fell down yesterday, stand up today' }
 ]
 
 app.get('/', (req, res) => {
