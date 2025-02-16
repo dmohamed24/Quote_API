@@ -14,7 +14,15 @@ const quotes = [
     text: 'The most certain way to succeed is always to try just one more time'
   },
   { id: 6, text: 'Learn from yesterday, live for today, hope for tomorrow' },
-  { id: 7, text: 'If you fell down yesterday, stand up today' }
+  { id: 7, text: 'If you fell down yesterday, stand up today' },
+  {
+    id: 8,
+    text: 'Quotes choose to be optimistic it feels betterHe who conquers himself is the mightiest warrior'
+  },
+  {
+    id: 9,
+    text: 'Anyone who has never made a mistake has never tried anything new'
+  }
 ]
 
 app.get('/', (req, res) => {
