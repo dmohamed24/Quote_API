@@ -1,4 +1,4 @@
-name: Continous Integration workflow
+name: Continuous Integration Workflow
 
 on:
   pull_request:
@@ -14,27 +14,30 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v2
-        name: "Checkout repository"
+      - uses: actions/checkout@v4
+        name: "Checkout reporsitory"
 
-      - name: "Install Dependencies"
+      - name: "Install dependencies"
         run: npm install
 
-      - name: "Run test"
+      - name: "Run tests"
         run: npm run test
 
-  lint:
+  linter:
     name: "Run linter"
     defaults:
       run:
         shell: bash
+        working-directory: ./src
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        name: "Checkout repository"
+      - uses: actions/checkout@v4
+        name: "Checkput reporsitory"
+
       - name: "Install dependencies"
-        run: npm run install
-      - name: "Run standard linter"
+        run: npm install
+
+      - name: "Run linter"
         run: npx standard -v
