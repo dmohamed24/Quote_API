@@ -50,4 +50,4 @@ jobs:
     steps:
       - name: "Trigger Deploy Hook for PR Preview"
         run: |
-          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_STAGING }}"
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
