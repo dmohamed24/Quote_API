@@ -41,7 +41,6 @@ jobs:
     name: "Deploy PR for LIVE ENV"
     needs: [test, linter]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
       - name: "Trigger Deploy Hook for LIVE ENV"
         run: |
