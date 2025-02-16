@@ -26,3 +26,14 @@ describe('GET /quote', () => {
     expect(res.body).toHaveProperty('text')
   })
 })
+
+describe('GET /quotes', () => {
+  it('should return an array of quotes', async () => {
+    const res = await request(app).get('/quotes')
+    expect(res.statusCode).toBe(200)
+    expect(Array.isArray(res.body)).toBe(true)
+    expect(res.body.length).toBeGreaterThan(0)
+    expect(res.body[0]).toHaveProperty('id')
+    expect(res.body[0]).toHaveProperty('text')
+  })
+})
