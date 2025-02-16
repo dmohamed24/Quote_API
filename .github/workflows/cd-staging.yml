@@ -1,9 +1,6 @@
-name: Continuous Integration Workflow
+name: Continuous Deploymet to Staging Workflow
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
@@ -42,12 +39,11 @@ jobs:
       - name: "Run linter"
         run: npx standard -v
 
-  deploy-preview:
-    name: "Deploy PR Preview to Render"
+  deploy-staging:
+    name: "Deploy to staging"
     needs: [test, linter]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
-      - name: "Trigger Deploy Hook for PR Preview"
+      - name: "Trigger Deploy Hook for stage env"
         run: |
           curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_STAGING }}"
