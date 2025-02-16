@@ -41,3 +41,13 @@ jobs:
 
       - name: "Run linter"
         run: npx standard -v
+
+  deploy-preview:
+    name: "Deploy PR Preview to Render"
+    needs: [test, linter]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: "Trigger Deploy Hook for PR Preview"
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
