@@ -5,14 +5,17 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "jest",
-    "lint": "npx standard --fix"
+    "lint": "npx standard --fix",
+    "seed": "node src/seed.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "ci-cd pipeline for a restful api app",
   "dependencies": {
-    "express": "^4.21.2"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1"
   },
   "devDependencies": {
     "globals": "^15.15.0",
